@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare AI Chatbot - AI-Powered Healthcare Platform</title>
+    <link rel="stylesheet" href="ppt.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthCare AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#patient-features" class="nav-link">Patient Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#doctor-features" class="nav-link">Doctor Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link">How it Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered Healthcare Assistance at Your Fingertips</h1>
+                <p class="hero-subtitle">Upload images, analyze symptoms, get medical advice, and track health – all in one platform.</p>
+                <button class="cta-button" onclick="scrollToSection('patient-features')">
+                    Get Started
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="hero-graphic">
+                    <div class="medical-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="ai-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="connection-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Features Section -->
+    <section id="patient-features" class="patient-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Patient Features</h2>
+                <p>Comprehensive AI-powered tools for patients to manage their health</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Advanced Image Analysis</h3>
+                    <p>Our cutting-edge AI technology can analyze medical images including skin conditions, eye examinations, oral health assessments, and dermatological concerns. The system uses deep learning algorithms trained on thousands of medical images to detect patterns, anomalies, and potential health issues with remarkable accuracy.</p>
+                    <div class="feature-highlights">
+                        <span class="highlight-tag">Skin Cancer Detection</span>
+                        <span class="highlight-tag">Eye Disease Screening</span>
+                        <span class="highlight-tag">Oral Health Assessment</span>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <h3>3D Symptom Mapping</h3>
+                    <p>Revolutionary interactive 3D human body visualization that allows patients to precisely mark pain points, symptoms, and areas of concern. The AI analyzes the location, intensity, and description of symptoms to provide comprehensive health insights and potential diagnoses based on medical databases and research.</p>
+                    <div class="feature-highlights">
+                        <span class="highlight-tag">Pain Point Mapping</span>
+                        <span class="highlight-tag">Symptom Correlation</span>
+                        <span class="highlight-tag">Medical Insights</span>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Intelligent Report Analysis</h3>
+                    <p>Transform complex medical reports into easy-to-understand insights. Our AI processes blood tests, lab results, imaging reports, and medical documents to provide clear explanations of what your numbers mean, identify potential health risks, and suggest follow-up actions or lifestyle changes for optimal health outcomes.</p>
+                    <div class="feature-highlights">
+                        <span class="highlight-tag">Blood Test Interpretation</span>
+                        <span class="highlight-tag">Lab Result Analysis</span>
+                        <span class="highlight-tag">Health Risk Assessment</span>
+                    </div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Health Assistant</h3>
+                    <p>24/7 intelligent health companion that combines vast medical knowledge with web-scraped health data to provide personalized health advice, medication information, dietary recommendations, and lifestyle suggestions. The AI learns from interactions to provide increasingly accurate and relevant health guidance.</p>
+                    <div class="feature-highlights">
+                        <span class="highlight-tag">Personalized Advice</span>
+                        <span class="highlight-tag">Medication Guidance</span>
+                        <span class="highlight-tag">Lifestyle Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Features Section -->
+    <section id="doctor-features" class="doctor-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Doctor Features</h2>
+                <p>Advanced AI tools designed specifically for healthcare professionals</p>
+            </div>
+            <div class="doctor-grid">
+                <div class="doctor-card" data-aos="fade-right">
+                    <div class="doctor-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3>Advanced X-ray & Medical Imaging Analysis</h3>
+                    <p>Revolutionary AI-powered medical imaging analysis that processes X-rays, CT scans, MRIs, and ultrasounds with superhuman accuracy. Our deep learning models trained on millions of medical images can detect fractures, tumors, infections, and abnormalities that might be missed by traditional screening methods.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 99.7% accuracy in fracture detection</li>
+                        <li><i class="fas fa-check"></i> Early-stage cancer identification</li>
+                        <li><i class="fas fa-check"></i> Pneumonia and lung disease detection</li>
+                        <li><i class="fas fa-check"></i> Automated DICOM compatibility</li>
+                        <li><i class="fas fa-check"></i> Real-time analysis in under 30 seconds</li>
+                    </ul>
+                </div>
+                <div class="doctor-card" data-aos="fade-left">
+                    <div class="doctor-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Intelligent Patient Monitoring & Predictive Analytics</h3>
+                    <p>Comprehensive patient health tracking system that monitors vital signs, medication compliance, recovery progress, and predicts potential health deterioration. AI algorithms analyze patterns in patient data to provide early warnings and personalized treatment recommendations.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Real-time vital sign monitoring</li>
+                        <li><i class="fas fa-check"></i> Predictive health deterioration alerts</li>
+                        <li><i class="fas fa-check"></i> Treatment efficacy tracking</li>
+                        <li><i class="fas fa-check"></i> Automated progress reports</li>
+                        <li><i class="fas fa-check"></i> Risk stratification algorithms</li>
+                    </ul>
+                </div>
+                <div class="doctor-card full-width" data-aos="fade-up">
+                    <div class="doctor-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>AI-Powered Clinical Decision Support Dashboard</h3>
+                    <p>Centralized command center that aggregates all patient data, AI analysis results, and clinical insights into an intuitive interface. Features advanced analytics, population health management, and AI-driven treatment recommendations to enhance clinical decision-making and improve patient outcomes.</p>
+                    <div class="dashboard-preview">
+                        <div class="dashboard-item">
+                            <span class="dashboard-label">Active Patients</span>
+                            <span class="dashboard-value">2,847</span>
+                        </div>
+                        <div class="dashboard-item">
+                            <span class="dashboard-label">AI Analyses Today</span>
+                            <span class="dashboard-value">1,249</span>
+                        </div>
+                        <div class="dashboard-item">
+                            <span class="dashboard-label">Diagnostic Accuracy</span>
+                            <span class="dashboard-value">97%</span>
+                        </div>
+                        <div class="dashboard-item">
+                            <span class="dashboard-label">Time Saved</span>
+                            <span class="dashboard-value">4.2hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How it Works</h2>
+                <p>Simple steps to get AI-powered healthcare assistance</p>
+            </div>
+            <div class="steps-container">
+                <div class="step" data-aos="fade-up">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload & Input</h3>
+                        <p>Patient uploads images, symptoms, or medical reports through our secure platform.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Analysis</h3>
+                        <p>Our advanced AI analyzes the data and asks intelligent follow-up questions if needed.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Recommendations</h3>
+                        <p>Patient receives detailed guidance, recommendations, and actionable health insights.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="step" data-aos="fade-up" data-aos-delay="600">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Doctor Review</h3>
+                        <p>Healthcare professionals review AI analysis and track patient progress over time.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Model Showcase Section -->
+    <section class="model-demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Advanced 3D Human Body Visualization</h2>
+                <p>Cutting-edge 3D anatomical mapping for precise medical analysis and diagnosis</p>
+            </div>
+            <div class="model-container">
+                <div class="human-model-3d">
+                    <div class="model-viewer">
+                        <!-- Enhanced 3D Human Model -->
+                        <div class="anatomical-model">
+                            <div class="body-system skeletal active" data-system="skeletal">
+                                <div class="skeleton">
+                                    <div class="skull"></div>
+                                    <div class="spine"></div>
+                                    <div class="ribcage"></div>
+                                    <div class="pelvis"></div>
+                                    <div class="left-arm-bones"></div>
+                                    <div class="right-arm-bones"></div>
+                                    <div class="left-leg-bones"></div>
+                                    <div class="right-leg-bones"></div>
+                                </div>
+                            </div>
+                            <div class="body-system muscular" data-system="muscular">
+                                <div class="muscle-groups">
+                                    <div class="chest-muscles"></div>
+                                    <div class="back-muscles"></div>
+                                    <div class="arm-muscles"></div>
+                                    <div class="leg-muscles"></div>
+                                    <div class="core-muscles"></div>
+                                </div>
+                            </div>
+                            <div class="body-system organs" data-system="organs">
+                                <div class="internal-organs">
+                                    <div class="heart"></div>
+                                    <div class="lungs"></div>
+                                    <div class="liver"></div>
+                                    <div class="kidneys"></div>
+                                    <div class="brain"></div>
+                                </div>
+                            </div>
+                            <!-- Rotating Human Figure -->
+                            <div class="human-figure">
+                                <div class="head-3d"></div>
+                                <div class="torso-3d"></div>
+                                <div class="arms-3d"></div>
+                                <div class="legs-3d"></div>
+                            </div>
+                        </div>
+                        <div class="model-controls">
+                            <button class="system-btn active" data-target="skeletal">
+                                <i class="fas fa-bone"></i>
+                                Skeletal System
+                            </button>
+                            <button class="system-btn" data-target="muscular">
+                                <i class="fas fa-dumbbell"></i>
+                                Muscular System
+                            </button>
+                            <button class="system-btn" data-target="organs">
+                                <i class="fas fa-heart"></i>
+                                Organ System
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="model-features">
+                    <h3>3D Anatomical Mapping Capabilities</h3>
+                    <div class="feature-showcase">
+                        <div class="showcase-item">
+                            <div class="showcase-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>360° Visualization</h4>
+                            <p>Complete 360-degree anatomical visualization with zoom capabilities for detailed examination of body systems, organs, and structures.</p>
+                        </div>
+                        <div class="showcase-item">
+                            <div class="showcase-icon">
+                                <i class="fas fa-crosshairs"></i>
+                            </div>
+                            <h4>Precision Mapping</h4>
+                            <p>Millimeter-accurate body part identification and symptom localization using advanced 3D coordinate systems and medical imaging standards.</p>
+                        </div>
+                        <div class="showcase-item">
+                            <div class="showcase-icon">
+                                <i class="fas fa-layers"></i>
+                            </div>
+                            <h4>Multi-Layer Analysis</h4>
+                            <p>Layer-by-layer anatomical analysis including skeletal, muscular, circulatory, and nervous systems for comprehensive health assessment.</p>
+                        </div>
+                        <div class="showcase-item">
+                            <div class="showcase-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>AI-Powered Insights</h4>
+                            <p>Machine learning algorithms analyze 3D body data to identify patterns, predict health issues, and suggest preventive measures.</p>
+                        </div>
+                    </div>
+                    <div class="technical-specs">
+                        <h4>Technical Specifications</h4>
+                        <ul>
+                            <li><strong>Resolution:</strong> 4K anatomical rendering with real-time processing</li>
+                            <li><strong>Accuracy:</strong> Sub-millimeter precision in body part identification</li>
+                            <li><strong>Systems:</strong> 11 major body systems with 2,500+ anatomical structures</li>
+                            <li><strong>Integration:</strong> Compatible with medical imaging devices (MRI, CT, X-ray)</li>
+                            <li><strong>Performance:</strong> Real-time rendering at 60fps with WebGL technology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="contact" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="mission-statement">
+                    <h2>Revolutionizing Healthcare Through AI Innovation</h2>
+                    <p>Our platform represents the future of medical technology, where artificial intelligence meets human healthcare expertise. We're pioneering a new era of precision medicine, predictive analytics, and personalized healthcare solutions that make quality medical care accessible to everyone, everywhere.</p>
+                    
+                    <div class="platform-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500K+</div>
+                            <div class="stat-label">Patients Served</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Healthcare Professionals</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99.2%</div>
+                            <div class="stat-label">Diagnostic Accuracy</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">AI Availability</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="technology-showcase">
+                    <h3>Cutting-Edge Technology Stack</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fas fa-brain"></i>
+                            <h4>Deep Learning Neural Networks</h4>
+                            <p>Advanced neural architectures trained on millions of medical cases</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-eye"></i>
+                            <h4>Computer Vision</h4>
+                            <p>State-of-the-art image recognition for medical imaging analysis</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-language"></i>
+                            <h4>Natural Language Processing</h4>
+                            <p>Advanced NLP for understanding medical symptoms and reports</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Predictive Analytics</h4>
+                            <p>Machine learning models for health trend prediction and early detection</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>Connect With Our Innovation Team</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>innovation@healthcare-ai.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>www.healthcare-ai-platform.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>AI Healthcare Innovation Center, Silicon Valley</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>HIPAA Compliant & FDA Approved Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>HealthCare AI</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#security">Security</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HealthCare AI Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="ppt.js"></script>
+</body>
+</html>
