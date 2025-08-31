@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initialize3DModel();
     initializeScrollEffects();
     initializeShowcaseFeatures();
+    initializeArchitectureSection();
 });
 
 // Navigation Functions
@@ -419,4 +420,286 @@ function lazyLoadImages() {
 // Initialize lazy loading
 lazyLoadImages();
 
+// Architecture Section Interactions
+function initializeArchitectureSection() {
+    // Sequential flow animation for architecture cards
+    animateArchitectureFlows();
+    
+    // Interactive hover effects for flow steps
+    initializeFlowStepInteractions();
+    
+    // Data flow visualization
+    initializeDataFlowAnimation();
+    
+    // Progressive reveal animation
+    initializeProgressiveReveal();
+}
+
+function animateArchitectureFlows() {
+    const architectureCards = document.querySelectorAll('.architecture-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateFlowSteps(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    architectureCards.forEach(card => observer.observe(card));
+}
+
+function animateFlowSteps(card) {
+    const flowSteps = card.querySelectorAll('.flow-step');
+    const flowArrows = card.querySelectorAll('.flow-arrow');
+    
+    // Reset all elements
+    flowSteps.forEach(step => {
+        step.style.opacity = '0';
+        step.style.transform = 'translateY(30px)';
+    });
+    
+    flowArrows.forEach(arrow => {
+        arrow.style.opacity = '0';
+        arrow.style.transform = 'scale(0.5)';
+    });
+    
+    // Animate steps sequentially
+    flowSteps.forEach((step, index) => {
+        setTimeout(() => {
+            step.style.transition = 'all 0.6s ease';
+            step.style.opacity = '1';
+            step.style.transform = 'translateY(0)';
+            
+            // Add pulse effect to step icon
+            const stepIcon = step.querySelector('.step-icon');
+            if (stepIcon) {
+                stepIcon.style.animation = 'pulse 0.6s ease';
+            }
+            
+            // Animate arrow after step
+            if (index < flowArrows.length) {
+                setTimeout(() => {
+                    flowArrows[index].style.transition = 'all 0.4s ease';
+                    flowArrows[index].style.opacity = '1';
+                    flowArrows[index].style.transform = 'scale(1)';
+                }, 300);
+            }
+        }, index * 400);
+    });
+}
+
+function initializeFlowStepInteractions() {
+    const flowSteps = document.querySelectorAll('.flow-step');
+    
+    flowSteps.forEach((step, index) => {
+        step.addEventListener('mouseenter', function() {
+            // Highlight connected steps
+            const parentCard = this.closest('.architecture-card');
+            const allSteps = parentCard.querySelectorAll('.flow-step');
+            
+            allSteps.forEach((s, i) => {
+                if (i <= index) {
+                    s.style.filter = 'brightness(1.1)';
+                    s.style.transform = 'translateY(-5px) scale(1.02)';
+                } else {
+                    s.style.filter = 'brightness(0.8)';
+                }
+            });
+        });
+        
+        step.addEventListener('mouseleave', function() {
+            const parentCard = this.closest('.architecture-card');
+            const allSteps = parentCard.querySelectorAll('.flow-step');
+            
+            allSteps.forEach(s => {
+                s.style.filter = '';
+                s.style.transform = '';
+            });
+        });
+        
+        // Click to show detailed info
+        step.addEventListener('click', function() {
+            showStepDetails(this, index);
+        });
+    });
+}
+
+function showStepDetails(step, index) {
+    const stepTitle = step.querySelector('h4').textContent;
+    const stepDescription = step.querySelector('p').textContent;
+    
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        transform: scale(0.8);
+        animation: slideIn 0.3s ease forwards;
+    `;
+    
+    modalContent.innerHTML = `
+        <div style="font-size: 3rem; color: #2563eb; margin-bottom: 20px;">
+            ${step.querySelector('.step-icon').innerHTML}
+        </div>
+        <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: #1f2937;">${stepTitle}</h3>
+        <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 30px; line-height: 1.6;">${stepDescription}</p>
+        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" 
+                style="background: #2563eb; color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s ease;">
+            Close
+        </button>
+    `;
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+}
+
+function initializeDataFlowAnimation() {
+    const techSpecs = document.querySelector('.tech-specs-container');
+    
+    if (techSpecs) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSpecItems();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(techSpecs);
+    }
+}
+
+function animateSpecItems() {
+    const specItems = document.querySelectorAll('.spec-item');
+    
+    specItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px) rotateY(-10deg)';
+        
+        setTimeout(() => {
+            item.style.transition = 'all 0.8s ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0) rotateY(0deg)';
+            
+            // Add sparkle effect
+            setTimeout(() => {
+                createDataSparkles(item);
+            }, 400);
+        }, index * 200);
+    });
+}
+
+function createDataSparkles(element) {
+    const rect = element.getBoundingClientRect();
+    const sparkleCount = 5;
+    
+    for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.style.cssText = `
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #06b6d4;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            left: ${rect.left + Math.random() * rect.width}px;
+            top: ${rect.top + Math.random() * rect.height}px;
+            animation: dataSparkle 2s ease-out forwards;
+        `;
+        
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+    }
+}
+
+function initializeProgressiveReveal() {
+    // Add progressive reveal effect to architecture icons
+    const archIcons = document.querySelectorAll('.arch-icon');
+    
+    archIcons.forEach(icon => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'iconReveal 1s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(icon);
+    });
+}
+
+// Add additional CSS animations dynamically for architecture section
+const architectureStyle = document.createElement('style');
+architectureStyle.textContent = `
+    @keyframes iconReveal {
+        0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+        50% { transform: scale(1.2) rotate(-90deg); opacity: 0.8; }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    
+    @keyframes dataSparkle {
+        0% { 
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.5) translateY(-20px);
+            opacity: 0.8;
+        }
+        100% { 
+            transform: scale(0) translateY(-40px);
+            opacity: 0;
+        }
+    }
+    
+    .flow-step {
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .flow-step:hover .step-icon {
+        animation: bounce 0.6s ease !important;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-10px); }
+        60% { transform: translateY(-5px); }
+    }
+`;
+document.head.appendChild(architectureStyle);
+
 console.log('🏥 HealthCare AI Platform loaded successfully!');
+
