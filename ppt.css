@@ -496,10 +496,261 @@ body {
     margin: 0 10px;
 }
 
+/* AI Architecture Section */
+.architecture-section {
+    padding: 100px 0;
+    background: var(--background-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.architecture-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="circuit" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 0 50 L 50 50 L 50 0 M 50 50 L 100 50 M 50 50 L 50 100" fill="none" stroke="rgba(37,99,235,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23circuit)"/></svg>');
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.architecture-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.architecture-card {
+    background: var(--background-light);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: var(--shadow-large);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.architecture-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.architecture-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    border-color: var(--primary-color);
+}
+
+.architecture-card:hover::before {
+    opacity: 0.05;
+}
+
+.arch-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.arch-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.arch-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+.arch-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.arch-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.arch-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flow-step {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    background: var(--background-white);
+    border-radius: 15px;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.flow-step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.step-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.3;
+    transform: scale(0);
+    animation: pulse-ring 2s infinite;
+}
+
+.flow-step h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.flow-step p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.flow-arrow {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0 10px;
+    animation: float-horizontal 2s ease-in-out infinite;
+}
+
+.tech-specs-container {
+    margin-top: 60px;
+    background: var(--gradient-primary);
+    border-radius: 25px;
+    padding: 50px 40px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-specs-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+    animation: rotate-bg 20s linear infinite;
+    z-index: 0;
+}
+
+.tech-specs-container h3 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.spec-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.spec-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.spec-item i {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0.9;
+}
+
+.spec-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.spec-item p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
 /* 3D Model Showcase Section */
 .model-demo {
     padding: 100px 0;
-    background: var(--background-white);
+    background: var(--background-light);
 }
 
 .model-container {
@@ -551,49 +802,534 @@ body {
     transform-style: preserve-3d;
 }
 
-.head-3d, .torso-3d, .arms-3d, .legs-3d {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Enhanced Realistic Human 3D Model */
+
+/* Skin color variables */
+:root {
+    --skin-color: #f7d4a0;
+    --skin-shadow: #e8c192;
+    --skin-highlight: #fce4c4;
+    --hair-color: #8b4513;
+    --eye-color: #4a90e2;
+    --lip-color: #d67b7b;
 }
 
+/* Head and Face */
 .head-3d {
-    width: 60px;
-    height: 80px;
+    position: absolute;
+    width: 70px;
+    height: 90px;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50%;
-    background: linear-gradient(145deg, #ffeaa7, #fdcb6e);
+    background: radial-gradient(ellipse at 30% 30%, var(--skin-highlight), var(--skin-color), var(--skin-shadow));
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: 
+        inset -3px -3px 8px rgba(0,0,0,0.1),
+        inset 3px 3px 8px rgba(255,255,255,0.3),
+        0 4px 12px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
-.torso-3d {
+.face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.eyes {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 15px;
+}
+
+.eye {
+    width: 12px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--eye-color);
+    border-radius: 50%;
+    top: 0;
+    left: 2px;
+    box-shadow: 
+        inset -1px -1px 2px rgba(0,0,0,0.2),
+        2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.eye::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #000;
+    border-radius: 50%;
+    top: 2px;
+    left: 4px;
+    z-index: 2;
+}
+
+.nose {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 12px;
+    background: linear-gradient(135deg, var(--skin-highlight), var(--skin-shadow));
+    border-radius: 40% 40% 50% 50%;
+    box-shadow: 
+        1px 1px 2px rgba(0,0,0,0.1),
+        inset -1px -1px 2px rgba(0,0,0,0.05);
+}
+
+.mouth {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 4px;
+    background: var(--lip-color);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.hair {
+    position: absolute;
+    top: -8px;
+    left: -5px;
     width: 80px;
-    height: 150px;
+    height: 50px;
+    background: radial-gradient(ellipse at 40% 60%, var(--hair-color), #654321);
+    border-radius: 50% 50% 20% 20%;
+    z-index: -1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Neck */
+.neck-3d {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--skin-color), var(--skin-shadow));
+    border-radius: 15px 15px 8px 8px;
+    box-shadow: 
+        inset -2px -2px 4px rgba(0,0,0,0.1),
+        0 2px 4px rgba(0,0,0,0.1);
+    z-index: 8;
+}
+
+/* Enhanced Torso */
+.torso-3d {
+    position: absolute;
+    width: 90px;
+    height: 160px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--skin-highlight), var(--skin-color), var(--skin-shadow));
+    border-radius: 45px 45px 20px 20px;
+    box-shadow: 
+        inset -5px -5px 15px rgba(0,0,0,0.1),
+        inset 5px 5px 15px rgba(255,255,255,0.3),
+        0 6px 20px rgba(0,0,0,0.15);
+    z-index: 5;
+}
+
+.chest {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 60px;
+    background: radial-gradient(ellipse at 50% 30%, var(--skin-highlight), transparent);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.abdomen {
+    position: absolute;
     top: 90px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(145deg, #74b9ff, #0984e3);
-}
-
-.arms-3d {
-    width: 140px;
-    height: 20px;
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(145deg, #fd79a8, #e84393);
-    border-radius: 10px;
-}
-
-.legs-3d {
     width: 60px;
-    height: 120px;
-    top: 260px;
+    height: 50px;
+    background: linear-gradient(180deg, transparent, var(--skin-shadow));
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+/* Shoulders */
+.shoulders {
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    height: 40px;
+}
+
+.shoulder {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle at 30% 30%, var(--skin-highlight), var(--skin-color));
+    border-radius: 50%;
+    box-shadow: 
+        inset -2px -2px 6px rgba(0,0,0,0.1),
+        2px 2px 6px rgba(0,0,0,0.1);
+    z-index: 6;
+}
+
+.left-shoulder {
+    left: 35px;
+    top: 10px;
+}
+
+.right-shoulder {
+    right: 35px;
+    top: 10px;
+}
+
+/* Enhanced Arms */
+.arms-3d {
+    position: absolute;
+    top: 125px;
+    width: 100%;
+    height: 100px;
+}
+
+.arm {
+    position: absolute;
+    height: 100px;
+}
+
+.left-arm {
+    left: 35px;
+    top: 0px;
+}
+
+.right-arm {
+    right: 35px;
+    top: 0px;
+}
+
+.upper-arm {
+    width: 20px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--skin-highlight), var(--skin-color), var(--skin-shadow));
+    border-radius: 10px;
+    box-shadow: 
+        inset -2px -2px 6px rgba(0,0,0,0.1),
+        2px 2px 8px rgba(0,0,0,0.15);
+}
+
+.elbow {
+    width: 16px;
+    height: 16px;
+    margin: 2px auto;
+    background: radial-gradient(circle, var(--skin-color), var(--skin-shadow));
+    border-radius: 50%;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+
+.forearm {
+    width: 18px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--skin-color), var(--skin-shadow));
+    border-radius: 9px;
+    box-shadow: 
+        inset -1px -1px 4px rgba(0,0,0,0.1),
+        1px 1px 6px rgba(0,0,0,0.1);
+}
+
+/* Hands */
+.hand {
+    width: 20px;
+    height: 25px;
+    margin: 2px auto;
+    background: radial-gradient(ellipse at 40% 30%, var(--skin-highlight), var(--skin-color));
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: 
+        inset -2px -2px 4px rgba(0,0,0,0.1),
+        2px 2px 6px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.fingers {
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2px;
+}
+
+.finger {
+    width: 2px;
+    height: 8px;
+    background: linear-gradient(180deg, var(--skin-color), var(--skin-shadow));
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.thumb {
+    position: absolute;
+    width: 3px;
+    height: 6px;
+    background: var(--skin-color);
+    border-radius: 2px;
+    left: -2px;
+    top: 5px;
+    transform: rotate(-30deg);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Enhanced Legs */
+.legs-3d {
+    position: absolute;
+    top: 250px;
+    width: 90px;
+    height: 140px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(145deg, #00b894, #00a085);
+}
+
+.leg {
+    position: absolute;
+    height: 140px;
+    width: 25px;
+}
+
+.left-leg {
+    left: 10px;
+}
+
+.right-leg {
+    right: 10px;
+}
+
+.thigh {
+    width: 25px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--skin-highlight), var(--skin-color), var(--skin-shadow));
+    border-radius: 12px;
+    box-shadow: 
+        inset -3px -3px 8px rgba(0,0,0,0.1),
+        3px 3px 10px rgba(0,0,0,0.15);
+}
+
+.knee {
+    width: 20px;
+    height: 20px;
+    margin: 3px auto;
+    background: radial-gradient(circle, var(--skin-color), var(--skin-shadow));
+    border-radius: 50%;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+.shin {
+    width: 22px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--skin-color), var(--skin-shadow));
+    border-radius: 11px;
+    box-shadow: 
+        inset -2px -2px 6px rgba(0,0,0,0.1),
+        2px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Feet */
+.foot {
+    width: 28px;
+    height: 12px;
+    margin: 2px auto;
+    background: radial-gradient(ellipse at 30% 40%, var(--skin-highlight), var(--skin-color));
+    border-radius: 60% 60% 20% 20%;
+    box-shadow: 
+        inset -2px -2px 4px rgba(0,0,0,0.1),
+        2px 2px 6px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+.toes {
+    position: absolute;
+    top: -3px;
+    width: 80%;
+    left: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.toe {
+    width: 2px;
+    height: 4px;
+    background: var(--skin-color);
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.toe:first-child {
+    width: 3px;
+    height: 5px;
+}
+
+/* Enhanced body systems - more realistic */
+.body-system {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.body-system.active {
+    opacity: 0.8;
+}
+
+/* More realistic skeletal system */
+.skull { 
+    width: 55px; 
+    height: 70px; 
+    top: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    border-radius: 50%; 
+    background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+    border: 2px solid #bbb;
+    box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.spine { 
+    width: 6px; 
+    height: 220px; 
+    top: 80px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: linear-gradient(180deg, #f0f0f0, #d0d0d0, #f0f0f0);
+    border-radius: 3px;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.2);
+}
+
+.ribcage { 
+    width: 75px; 
+    height: 90px; 
+    top: 100px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    border-radius: 15px;
+    background: 
+        linear-gradient(90deg, transparent 10px, #e0e0e0 12px, transparent 14px),
+        linear-gradient(90deg, transparent 20px, #e0e0e0 22px, transparent 24px),
+        linear-gradient(90deg, transparent 30px, #e0e0e0 32px, transparent 34px),
+        linear-gradient(90deg, transparent 40px, #e0e0e0 42px, transparent 44px);
+    border: 2px solid #bbb;
+}
+
+.pelvis { 
+    width: 70px; 
+    height: 45px; 
+    top: 200px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+    border-radius: 35px 35px 15px 15px;
+    border: 2px solid #bbb;
+}
+
+/* Enhanced muscular system */
+.chest-muscles { 
+    width: 70px; 
+    height: 70px; 
+    top: 110px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: radial-gradient(ellipse, #e74c3c, #c0392b);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.core-muscles { 
+    width: 55px; 
+    height: 90px; 
+    top: 170px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: linear-gradient(180deg, #e74c3c, #c0392b);
+    border-radius: 15px;
+    opacity: 0.8;
+}
+
+/* Enhanced organ system */
+.brain { 
+    width: 45px; 
+    height: 35px; 
+    top: 25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: radial-gradient(ellipse, #f39c12, #e67e22); 
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+}
+
+.heart { 
+    width: 35px; 
+    height: 35px; 
+    top: 130px; 
+    left: 45%; 
+    background: radial-gradient(circle, #e74c3c, #c0392b); 
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.lungs { 
+    width: 60px; 
+    height: 70px; 
+    top: 120px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: radial-gradient(ellipse, #3498db, #2980b9); 
+    border-radius: 50% 50% 30% 30%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+.liver { 
+    width: 40px; 
+    height: 45px; 
+    top: 170px; 
+    left: 55%; 
+    background: radial-gradient(ellipse, #8b4513, #654321); 
+    border-radius: 60% 40% 30% 70%;
+}
+
+.kidneys { 
+    width: 50px; 
+    height: 35px; 
+    top: 190px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background: 
+        radial-gradient(circle at 25% 50%, #9b59b6, #8e44ad) 0 0/20px 30px no-repeat,
+        radial-gradient(circle at 75% 50%, #9b59b6, #8e44ad) 30px 0/20px 30px no-repeat;
+    border-radius: 50%;
 }
 
 .body-system {
@@ -1015,6 +1751,34 @@ body {
     100% { transform: translate(-50%, -50%) rotateY(360deg); }
 }
 
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes float-horizontal {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+@keyframes rotate-bg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-container {
@@ -1042,6 +1806,20 @@ body {
     }
     
     .dashboard-preview {
+        gap: 20px;
+    }
+    
+    .arch-flow {
+        flex-direction: column;
+    }
+    
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+    }
+    
+    .specs-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
     }
 }
@@ -1114,6 +1892,19 @@ body {
         gap: 15px;
     }
     
+    .flow-step {
+        min-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .tech-specs-container {
+        padding: 30px 20px;
+    }
+    
+    .architecture-card {
+        padding: 30px 20px;
+    }
+    
     .footer-content {
         flex-direction: column;
         gap: 20px;
@@ -1182,3 +1973,4 @@ body {
         box-shadow: none !important;
     }
 }
+
